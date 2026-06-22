@@ -11,9 +11,10 @@ git url: 'https://github.com/Sanjanahraju/cipipeline.git', branch: 'main'
 }
 stage('Build')
 { steps {
-// Run Maven build
-'def mvnHome = tool 'Maven-3.8.7'
-sh "${mvnHome}/bin/mvn clean package"'
+script{
+def mvnHome = tool 'Maven-3.8.7'
+sh "${mvnHome}/bin/mvn clean package"
+}
 }
 }
 stage('Test') {
